@@ -20,9 +20,11 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix .",
-    "format": "prettier --write \"**/*.+(js|jsx|json|css|md)\""
+    "eject": "react-scripts eject",
+    "prettier": "prettier --write \"**/*.+(js|jsx|json|css|less|md)\"",
+    "coverage": "npm test -- --coverage --watchAll=false",
+    "lint": "eslint 'src/**/*.{js,jsx}' --fix",
+    "format": "prettier --write 'src/**/*.{js,jsx,css,less,scss}'"
   },
   "browserslist": {
     "production": [
@@ -33,7 +35,8 @@
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
-      "last 1 safari version"
+      "last 1 safari version",
+      "last 1 brave version"
     ]
   },
   "devDependencies": {
@@ -47,19 +50,23 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "eslint --fix",
+      "prettier-eslint --write"
+    ]
+  },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint && npm run format"
+      "pre-commit": "lint-staged"
     }
   },
-  "lint-staged": {
-    "*.+(js|jsx)": [
-      "eslint --fix",
-      "git add"
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js"
     ],
-    "*.+(json|css|md)": [
-      "prettier --write",
-      "git add"
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/node_modules/"
     ]
   }
 }
