@@ -1,12 +1,23 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory /*, useParams*/ } from "react-router-dom";
 import { Menu /*, Switch*/ } from "antd";
+
+// icons
 import {
   HomeOutlined,
   SolutionOutlined,
   CodeOutlined,
+  AppstoreOutlined,
   MailOutlined,
 } from "@ant-design/icons";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faReact,
+  faPython,
+  faAngular,
+  faJava,
+} from "@fortawesome/free-brands-svg-icons";
 
 import "./nav.less";
 
@@ -14,73 +25,75 @@ const { SubMenu } = Menu;
 
 const THEME = "dark";
 
-const SideNav = (props) => {
+const SideNav = props => {
   const { push } = useHistory();
-  const [current, setCurrent] = React.useState("0");
+  // const { type } = useParams();
+  const [current, setCurrent] = React.useState("home");
+
   // Possibly implement this at a later date
   // const [theme, setTheme] = React.useState("dark");
 
-  const links = [
-    {
+  const links = {
+    home: {
       path: "/",
       op: function () {
         push(this.path);
       },
     },
-    {
+    about: {
       path: "/about",
       op: function () {
         push(this.path);
       },
     },
-    {
+    allProjects: {
       path: "/projects",
       op: function () {
         push(this.path);
       },
     },
-    {
-      path: "/projects/1",
+    react: {
+      path: "/projects/react",
       op: function () {
         push(this.path);
       },
     },
-    {
-      path: "/projects/2",
+    python: {
+      path: "/projects/python",
       op: function () {
         push(this.path);
       },
     },
-    {
-      path: "/projects/3",
+    nextjs: {
+      path: "/projects/angular",
       op: function () {
         push(this.path);
       },
     },
-    {
-      path: "/projects/4",
+    java: {
+      path: "/projects/java",
       op: function () {
         push(this.path);
       },
     },
-    {
+    contact: {
       path: "/contact",
       op: function () {
         push(this.path);
       },
     },
-  ];
+  };
 
   // Possibly implement this at a later date
   // const handleChangeTheme = (val) => {
   //   setTheme(val ? "dark" : "light");
   // };
 
-  const handeMenuSelect = (e) => {
+  const handeMenuSelect = e => {
     links[e.key]["op"]();
   };
 
-  const handleClick = (e) => {
+  const handleClick = e => {
     setCurrent(e.key);
   };
 
@@ -95,20 +108,30 @@ const SideNav = (props) => {
         mode="inline"
         onSelect={handeMenuSelect}
       >
-        <Menu.Item key="0" icon={<HomeOutlined />}>
+        <Menu.Item key="home" icon={<HomeOutlined />}>
           Home
         </Menu.Item>
-        <Menu.Item key="1" icon={<SolutionOutlined />}>
+        <Menu.Item key="about" icon={<SolutionOutlined />}>
           About
         </Menu.Item>
         <SubMenu key="sub1" icon={<CodeOutlined />} title="Projects">
-          <Menu.Item key="2">All Projects</Menu.Item>
-          <Menu.Item key="3">Project 1</Menu.Item>
-          <Menu.Item key="4">Project 2</Menu.Item>
-          <Menu.Item key="7">Project 3</Menu.Item>
-          <Menu.Item key="6">Project 4</Menu.Item>
+          <Menu.Item key="allProjects" icon={<AppstoreOutlined />}>
+            All Projects
+          </Menu.Item>
+          <Menu.Item key="react" icon={<FontAwesomeIcon icon={faReact} />}>
+            React Projects
+          </Menu.Item>
+          <Menu.Item key="python" icon={<FontAwesomeIcon icon={faPython} />}>
+            Python Projects
+          </Menu.Item>
+          <Menu.Item key="angular" icon={<FontAwesomeIcon icon={faAngular} />}>
+            Angular Projects
+          </Menu.Item>
+          <Menu.Item key="java" icon={<FontAwesomeIcon icon={faJava} />}>
+            Java Projects
+          </Menu.Item>
         </SubMenu>
-        <Menu.Item key="7" icon={<MailOutlined />}>
+        <Menu.Item key="contact" icon={<MailOutlined />}>
           Contact Me
         </Menu.Item>
       </Menu>
