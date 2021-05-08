@@ -36,8 +36,7 @@ const ProjectTypes = () => {
   return (
     <div className="page-container">
       <pre>{JSON.stringify(type)}</pre>
-      <pre>{JSON.stringify(projects)}</pre>
-      <p>{type}</p>
+      <pre>{type && JSON.stringify(projects[type])}</pre>
     </div>
   );
 };

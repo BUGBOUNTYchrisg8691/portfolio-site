@@ -1,1 +1,2 @@
-export { Nav } from "./nav";
+export { SideNavUtil } from "./nav";
+export { FooterUtil } from "./footer";

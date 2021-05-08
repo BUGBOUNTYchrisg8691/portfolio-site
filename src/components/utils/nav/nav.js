@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory /*, useParams*/ } from "react-router-dom";
-import { Menu /*, Switch*/ } from "antd";
+import { Menu } from "antd";
 
 // icons
 import {
@@ -9,6 +9,11 @@ import {
   CodeOutlined,
   AppstoreOutlined,
   MailOutlined,
+  // MenuFoldOutlined,
+  // MenuUnfoldOutlined,
+  // ShrinkOutlined,
+  // ExpandAltOutlined,
+  // ExpandOutlined,
 } from "@ant-design/icons";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -64,7 +69,7 @@ const SideNav = props => {
         push(this.path);
       },
     },
-    nextjs: {
+    angular: {
       path: "/projects/angular",
       op: function () {
         push(this.path);
@@ -85,7 +90,7 @@ const SideNav = props => {
   };
 
   // Possibly implement this at a later date
-  // const handleChangeTheme = (val) => {
+  // const handleChangeTheme = val => {
   //   setTheme(val ? "dark" : "light");
   // };
 
@@ -99,12 +104,19 @@ const SideNav = props => {
 
   return (
     <div className="nav-container">
+      {/* Possibly implement this at a later date */}
+      {/* <Switch */}
+      {/*   checked={theme === "dark"} */}
+      {/*   onChange={handleChangeTheme} */}
+      {/*   checkedChildren="Dark" */}
+      {/*   unCheckedChildren="Light" */}
+      {/* /> */}
       <Menu
         theme={THEME}
+        // theme={theme}
         onClick={handleClick}
-        style={{ width: 256 }}
-        defaultOpenKeys={[]}
         selectedKeys={[current]}
+        defaultSelectedKeys={["allProjects"]}
         mode="inline"
         onSelect={handeMenuSelect}
       >
@@ -135,13 +147,16 @@ const SideNav = props => {
           Contact Me
         </Menu.Item>
       </Menu>
-      {/* Possibly implement this at a later date */}
-      {/* <Switch */}
-      {/*   checked={theme === "dark"} */}
-      {/*   onChange={handleChangeTheme} */}
-      {/*   checkedChildren="Dark" */}
-      {/*   unCheckedChildren="Light" */}
-      {/* /> */}
+      {/* <Button */}
+      {/*   type="primary" */}
+      {/*   size="large" */}
+      {/*   onClick={toggleCollapsed} */}
+      {/*   style={{ marginBotton: 16 }} */}
+      {/* > */}
+      {/*   {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined)} */}
+      {/*   {React.createElement(collapsed ? ExpandAltOutlined : ShrinkOutlined)} */}
+      {/*   {React.createElement(collapsed ? ExpandOutlined : ShrinkOutlined)} */}
+      {/* </Button> */}
     </div>
   );
 };
