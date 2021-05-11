@@ -57,6 +57,7 @@ const CustomFooter = () => {
           <Anchor>
             {socialMediaAccts.map((item, idx) => (
               <Link
+                key={idx + "footer-anchor-links"}
                 className="footer-anchor-links"
                 href={item.linkAddr}
                 title={<item.icon style={{ fontSize: "1.2rem" }} />}
