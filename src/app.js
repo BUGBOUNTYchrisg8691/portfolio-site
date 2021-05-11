@@ -14,13 +14,16 @@ import {
 } from "./components/views";
 import { SideNavUtil, FooterUtil } from "./components/utils";
 
+// assets
+import headerBanner from "./assets/headerBanner2.jpg";
+
 // styles
 import "./app.less";
 
 const { Header, Content, Sider } = Layout;
 
 const App = () => {
-  const [collapsed, setCollapsed] = React.useState(false);
+  const [collapsed, setCollapsed] = React.useState(true);
 
   const handleCollapse = collapsed => {
     setCollapsed(collapsed);
@@ -35,7 +38,20 @@ const App = () => {
             <Route component={SideNavUtil} />
           </Sider>
           <Layout className="site-layout">
-            <Header className="site-layout-background" style={{ padding: 0 }} />
+            <Header
+              className="site-layout-header"
+              style={{
+                padding: 0,
+                width: "100vw",
+                height: "15vh",
+                background: "none",
+                backgroundImage: `url(${headerBanner})`,
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+              }}
+            >
+              <div className="site-layout-header-overlay"></div>
+            </Header>
             <Content style={{ margin: "0 16px" }}>
               <Switch>
                 <Route exact path="/" component={HomeView} />
