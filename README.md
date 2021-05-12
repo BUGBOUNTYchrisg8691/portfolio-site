@@ -2,9 +2,11 @@
 
 #### Node v16 suggested
 
+### If you have trouble running this locally using `npm`, I have included a containerized version using [Docker](https://www.docker.com/)
+
 ## Build with Docker
 
-### If you have trouble running this locally, I have included a containerized version using [Docker](https://www.docker.com/)
+*A note for Unix users: Some of the following commands may require `sudo` depending on how you installed Docker and/or configured your installment. If at all possible, please look up how to configure Docker so `sudo` is not required, as using Docker with elevated privileges is not recommended for new users*
 
 #### Follow these steps to build and run using Docker
 
