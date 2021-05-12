@@ -1,4 +1,34 @@
-# Getting Started with Create React App
+## Run as normal React app. Documentation below Docker sections
+
+#### Node v16 suggested
+
+### If you have trouble running this locally using `npm`, I have included a containerized version using [Docker](https://www.docker.com/)
+
+## Build with Docker
+
+*A note for Unix users: Some of the following commands may require `sudo` depending on how you installed Docker and/or configured your installment. If at all possible, please look up how to configure Docker so `sudo` is not required, as using Docker with elevated privileges is not recommended for new users*
+
+#### Follow these steps to build and run using Docker
+
+1. Install Docker(link above)
+2. Clone repository
+3. Next, `cd` into `portfolio-site` or whatever you named it locally
+4. Run the command `docker build -t <image name>:<tag> .`. This will build a Docker image locally.
+5. Once `build` is finished, run with `docker run -it -p 3000:80 <image name>:<tag>`. Once this command hangs and you see the last stdout line of `/docker-entrypoint.sh: Configuration complete; ready for start up`, your Docker container is up and running. You can then access it via the browser at `localhost:3000`
+
+## Development Mode with Docker
+
+#### Follow these steps to run Docker container in development mode with hot reloading.
+
+1. Make sure you have the Docker engine and `docker-compose` binary installed. This comes separate from the Docker engine on Linux. If you installed Docker Desktop for MacOS and Linux, it should've come packaged with Docker. [Link to docs for `docker-compose`](https://docs.docker.com/compose/install/)
+2. Clone repo
+3. `cd` into `portfolio-site` or whatever you named it locally
+4. Next, run the command `docker-compose build`.
+5. Finally, run the command `docker-compose up`, and you should see the normal React stdout to the terminal with some additional output from the Docker container preceding each line, but just disregard that. Once you see the 'Compiled successfully' out from React, you can go to your browser and view it at `localhost:3000`
+
+#### In development mode, it will act like a normal React app built with CRA and hot reload any changes you make inside the `src` directory. Changes to any files outside the `src` directory will not be recognized and reload unless you configure the mounted `volumes` section within `app` within `services` in the `docker-compose.yml` config file. If you have any other issues, please consult the [Docker Docs](https://docs.docker.com/)
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
