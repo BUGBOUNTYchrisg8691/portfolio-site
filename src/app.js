@@ -42,7 +42,7 @@ const App = () => {
               className="site-layout-header"
               style={{
                 padding: 0,
-                width: "100vw",
+                width: "100%",
                 height: "15vh",
                 background: "none",
                 backgroundImage: `url(${headerBanner})`,
