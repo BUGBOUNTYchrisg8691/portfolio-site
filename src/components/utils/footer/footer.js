@@ -25,11 +25,6 @@ const socialMediaAccts = [
     icon: LinkedinOutlined,
   },
   {
-    service: "Lambda School",
-    linkAddr: "https://www.reddit.com/user/bugbuountychrisg8691",
-    icon: RedditOutlined,
-  },
-  {
     service: "Twitter",
     linkAddr: "https://twitter.com/chrisg8691",
     icon: TwitterOutlined,
@@ -54,7 +49,7 @@ const CustomFooter = () => {
           <p>
             Created by <b>Christopher Girvin</b>
           </p>
-          <Anchor>
+          <Anchor affix={false}>
             {socialMediaAccts.map((item, idx) => (
               <Link
                 key={idx + "footer-anchor-links"}
